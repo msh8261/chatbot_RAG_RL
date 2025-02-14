@@ -163,40 +163,37 @@ Enable load balancing and auto-scaling.
 ## Project Structure
 ```
 chatbot-system/
-│── backend/
-│   │── agents/
+│── backend/                        # Backend code for model, database, and services
+│   │── agents/                     # Chatbot logic and agent interactions
 │   │   │── __init__.py
-│   │   │── query_preprocessing.py
-│   │   │── retrieval.py
-│   │   │── generation.py
-│   │   │── fact_checking.py
-│   │   │── explainability.py
-│   │   │── feedback.py
-│   │── database/
+│   │   │── query_preprocessing.py   # Preprocesses input queries
+│   │   │── retrieval.py             # Handles knowledge retrieval (RAG)
+│   │   │── generation.py            # Manages text generation using models
+│   │   │── fact_checking.py         # Fact-checking for generated responses
+│   │   │── explainability.py        # Ensures model explainability (SHAP)
+│   │   │── feedback.py              # Collects and processes user feedback
+│   │── database/                    # Database interaction layer
 │   │   │── __init__.py
-│   │   │── milvus_client.py
-│   │   │── postgres_client.py
-│   │── models/
+│   │   │── milvus_client.py         # Interface with Milvus (vector search)
+│   │   │── db_client.py       # Interface with PostgreSQL
+│   │── models/                      # AI models and embeddings
 │   │   │── __init__.py
-│   │   │── embeddings.py
-│   │   │── transformers.py
-│   │── services/
+│   │   │── embeddings.py            # Embedding models
+│   │   │── transformers.py          # Transformer-based models (e.g., GPT, BERT)
+│   │── services/                    # FastAPI service layer
 │   │   │── __init__.py
-│   │   │── search_api.py
-│   │── utils/
-│   │   │── config.py
-│   │   │── logger.py
-│   │── main.py
-│   │── requirements.txt
-│── frontend/
-│   │── src/
-│   │   │── components/
-│   │   │── pages/
-│   │   │── App.js
-│   │   │── index.js
-│   │── package.json
-│   │── tailwind.config.js
-│── docker-compose.yml
-│── README.md
-```
+│   │   │── search_api.py            # API for knowledge search and chatbot interaction
+│   │── utils/                       # Utility functions and configuration
+│   │   │── config.py                # Configuration files for various components
+│   │   │── logger.py                # Logging setup
+│   │── main.py                      # Main entry point for backend services
+│   │── requirements.txt             # Backend dependencies
+│── frontend/                        # Frontend code (React-based UI)
+│   │── src/                         # React source code
+│   │   │── components/              # UI components
+│   │   │── App.js                   # Main React app component
+│   │   │── index.js                 # React entry point
+│── docker-compose.yml               # Docker Compose configuration for multi-container setup
+│── README.md                        # Project README file
+
 ```
